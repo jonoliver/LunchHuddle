@@ -41,7 +41,18 @@ p {
 
 label {
   width: 120px;
-  line-height: 25px;
+  line-height: 26px;
+}
+
+.form_control_section {
+  margin-top: 22px;
+}
+
+.user_info_explanation {
+  font-size: .80em;
+  text-align: right;
+  font-style: italic;
+  padding-right: 5px;
 }
 
 textarea,
@@ -362,11 +373,6 @@ h3 span.foo {
   cursor: move;
 }
 
-/*
-h3 #foo {
-  float: left;
-}
-*/
 .header #bar {
   float: right;
 }
@@ -401,4 +407,3 @@ h3 #foo {
 .clear {
   clear: both;
 }
-

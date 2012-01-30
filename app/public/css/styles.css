@@ -442,7 +442,8 @@ h3 span.foo {
   /* reset width */
   input,
   .column,
-  #all-content {
+  #all-content,
+  #all_content.cols_2 {
 	width: 100%;
   }
 

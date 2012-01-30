@@ -79,14 +79,5 @@ var VetoedLunchSpotsView = Backbone.View.extend({
     }
   }
 
-  ,set_position: function() {
-    var left_coord = $.cookie('vetoed_lunch_spots_view_left');
-    var top_coord = $.cookie('vetoed_lunch_spots_view_top');
-
-    var $section = $('div#vetoed_lunch_spots_view').parent('div.section');
-    $section.offset({top: top_coord, left: left_coord});
-  }
-  
-
 });
 

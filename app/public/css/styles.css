@@ -92,6 +92,7 @@ input:focus {
 input[type=button] {
   cursor: pointer;
   background-color: #2B889E;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#A2BFC5), to(#2B889E)); 
   background-image: -webkit-linear-gradient(90deg, #2B889E, #A2BFC5);
   background-image: -moz-linear-gradient(90deg, #2B889E, #A2BFC5);
   color: #FFF;
@@ -110,7 +111,6 @@ textarea {
 
 .header {
   color: white;
-  width: 300px;
   -moz-border-radius: 7px 7px 0 0;
   border-radius: 7px 7px 0 0;
   background-color: #6C6C6C;
@@ -333,7 +333,6 @@ h3 span.foo {
 }
 
 .section {
-  width: 300px;
   margin-bottom: 10px;
 }
 
@@ -406,4 +405,48 @@ h3 span.foo {
 
 .clear {
   clear: both;
+}
+
+/* mobile styles */
+@media screen and (max-width: 480px) {
+
+  /* disable font resize on iphone */
+  html {
+	  -webkit-text-size-adjust: none;
+  }
+
+
+  /* disable floats */
+  .column {
+	float: none;
+	padding: 0;
+  }
+  
+  textarea,
+  input {
+	float: none;
+	display: block;
+  }
+  
+  .header #bar {
+	float: none;
+  }
+  
+  #scratch_container #left {
+	float: none;
+  }
+  #scratch_container #right {
+	float: none;
+  }
+  
+  /* reset width */
+  input,
+  .column,
+  #all-content {
+	width: 100%;
+  }
+
+  body {
+	margin: 0;
+  }
 }

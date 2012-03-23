@@ -55,6 +55,10 @@ label {
   padding-right: 5px;
 }
 
+#utility_link {
+  text-align: right;
+}
+
 textarea,
 input {
   background-color: #FFFAF5;
@@ -407,6 +411,7 @@ h3 span.foo {
   clear: both;
 }
 
+<<<<<<< HEAD
 /* mobile styles */
 @media screen and (max-width: 480px) {
 
@@ -451,3 +456,9 @@ h3 span.foo {
 	margin: 0;
   }
 }
+
+#invitee_list input {
+  display: inline;
+  width: 20px;
+}
+

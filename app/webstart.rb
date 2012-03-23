@@ -13,13 +13,14 @@ ActionMailer::Base.smtp_settings = {
 }
 
 class MyMailer < ActionMailer::Base
- def email to_addr, huddle
-         mail(
-          :to      => to_addr,
-          :from    => "app760353@heroku.com",
-          :subject => "LunchHuddle invitation",
-          :body    => "http://lunchhuddle.heroku.com/land?huddle=" + huddle
-         )
+  def email to_addr, huddle
+
+    mail(
+      :to      => to_addr,
+      :from    => "app760353@heroku.com",
+      :subject => "LunchHuddle. Huddle Up!",
+      :body    => "http://lunchhuddle.heroku.com/land?huddle=" + huddle
+    )
   end
 end
 
@@ -46,25 +47,21 @@ end
 
 get '/huddle' do
   @huddle = params[:huddle]
-  @huddle ||= 'lunch_huddle'
+  @huddle ||= ''
   haml :huddle
 end
 
 post '/huddle/invite' do
-  huddle = params[:txtHuddle]
-  to_addr = params[:txtEmailAddr]
+  huddle  = params[:txtHuddle]
+  to_addr = params[:hdnEmailAddr]
 
-  puts "---> huddle: #{huddle} <---"
-  puts "---> to_addr: #{to_addr} <---"
-
-  MyMailer.email(to_addr, huddle).deliver
-
+  mailer = MyMailer.email(to_addr, huddle).deliver
   redirect "/?huddle=#{huddle}"
 end
 
 get '/utility' do
   @huddle = params[:huddle]
-  @huddle ||= 'lunch_huddle'
+  @huddle ||= ''
   haml :utility
 end
 

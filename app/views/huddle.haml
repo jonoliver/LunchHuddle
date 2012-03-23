@@ -2,13 +2,16 @@
 %html
   %head
     %link(rel="stylesheet" href="css/styles.css")
-    %script{:type => "text/javascript", :src =>"javascripts/lib/jquery-1.6.1.min.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/lib/jquery-1.7.1.min.js"}
     %script{:type => "text/javascript", :src =>"javascripts/lib/underscore.min.js"}
     %script{:type => "text/javascript", :src =>"javascripts/lib/backbone-min.js"}
     %script{:type => "text/javascript", :src =>"javascripts/lib/util.jquery.js"}
-    %script{:type => "text/javascript", :src =>"javascripts/UserInfo.js"}
-    %script{:type => "text/javascript", :src =>"javascripts/DataStore.js"}
     %script{:type => "text/javascript", :src =>"javascripts/lib/jjquery.cookie-modified.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/lib/Modernizr.dev.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/lib/mustache.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/UserInfo.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/UserInfoLib.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/DataStore.js"}
     %script{:type => "text/javascript", :src =>"javascripts/Logger.js"}
     %script{:type => "text/javascript", :src =>"javascripts/view/SendInvitesView.js"}
     %script{:type => "text/javascript", :src =>"javascripts/view/UserInfoView.js"}
@@ -19,7 +22,7 @@
 
   %body
     %div#all_content
-      %div.section
+      %div.section#huddle_invite
       
         %h3.main_title.header
           %a.home_link{:href => "/land?huddle=#{@huddle}"} Lunch Huddle
@@ -27,18 +30,21 @@
         %div#send_invites_view.view.has_header
           %h4 Huddle Info
       
-          %p Invite Others to Huddle #{@huddle}
-    
-          %form#frmSendInvite{:action => "/huddle/invite", :method => "post"}
-            %input#txtHuddle{:type => "text", :name => "txtHuddle", :value => @huddle}
-            %p
-              %br enter a valid email address list
-              To: 
-              %br
-              %textarea#txtEmailAddr{:name => "txtEmailAddr", :rows => 4}
-              %br
-              %br
-              %input#btnInvite{:type => "button", :value => "Send Invitation"}
+        %p Invite Others to <b>#{@huddle}</b> Huddle
+
+        %form#frmSendInvite{:action => "/huddle/invite", :method => "post"}
+          %input#txtHuddle{:type => "hidden", :name => "txtHuddle", :value => @huddle}
+          %input#hdnEmailAddr{:type => "hidden", :name => "hdnEmailAddr"}
+          %p 
+            Send an invite from the list below
+            %div#invitee_list
+
+          %p 
+            For new invitees, enter their email addresses in the box below
+            %textarea#txtEmailAddr{:name => "txtEmailAddr", 
+                                   :rows => 4, 
+                                   :placeholder => "person@yahoo.com, another_invitee@gmail.com"}
+
+            %input#btnInvite{:type => "button", :value => "Send Invitation"}
           
-          %div.clear
-          
+        %div.clear

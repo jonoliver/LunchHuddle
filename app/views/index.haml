@@ -45,17 +45,17 @@
               %span.foo
                 Welcome
                 %a#txtName.highlight{:href => "/userinfo?huddle=#{@huddle}"} 
-                %p
+              %p
                 %label where to eat? &nbsp;
                 %input#txtLunchSpot(type="text")
-                
+              
               %p
                 %label comment: &nbsp;
                 %input#txtMessage(type="text")
   
               %input#btnVote.defaultButton{:type => "button", :value => "Send"}
 
-            %div.clear
+              %div.clear
 
         %div#saved_lunch_spots_view.section
           %h4.header.closed

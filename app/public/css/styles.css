@@ -35,7 +35,7 @@ hr {
 }
 
 p {
-  font-size:14px;
+  font-size: 14px;
   color: #0E5667;
 }
 
@@ -411,7 +411,6 @@ h3 span.foo {
   clear: both;
 }
 
-<<<<<<< HEAD
 /* mobile styles */
 @media screen and (max-width: 480px) {
 
